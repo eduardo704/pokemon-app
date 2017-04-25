@@ -1,3 +1,37 @@
-<p>
-  pokemon-list works!
-</p>
+<div class="row margin-top-1">
+    <div class="col-sm-2">
+        <input [disabled]='pokemonService.offset==0 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='previous()' value="Previous">
+    </div>
+    <div class="col-sm-8">
+
+    </div>
+    <div class="col-sm-2">
+        <input [disabled]='pokemonService.offset>791 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='next()' value="Next">
+    </div>
+</div>
+<div *ngIf="pokemons; else loading">
+    <div class="row">
+        <div class="card-container col-sm-12">
+            <div *ngFor="let pokemon of pokemons" class="card card-item">
+                <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title text-center"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
+                    <a (click)="selectPokemon(pokemon)" class="btn btn-block btn-success">Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="primary well ">
+        <div class="card card-outline-primary bg-faded loading-card">
+            <div class="card-block">
+                <div class="well-flex">
+                    <h2>Loading... </h2>
+                    <h2><i class="fa fa-spinner fa-spin"></i></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

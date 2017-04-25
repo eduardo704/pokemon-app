@@ -1,3 +1,53 @@
-<p>
-  pokemon-detail works!
-</p>
+<!--<button routerLink="/list">Go to List</button>
+<h2>{{id}}</h2>-->
+<div class="card margin-top-1" *ngIf="pokemon; else loading">
+    <div class="card-header">
+        Pokemon details
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
+                    <div class="row">
+                        <div class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title text-center no-margin"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Height:&nbsp;<b>{{pokemon.height}}</b></li>
+                        <li class="list-group-item">Weight:&nbsp;<b>{{pokemon.weight}}</b></li>
+                        <li class="list-group-item">Types:&nbsp;
+                            <span *ngFor="let type of pokemon.types" class="badge types badge-success badge-pill"> {{type}} </span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h4>STATS</h4>
+                <div>
+                    <table class="table table-striped">
+                        <tr *ngFor="let stat of pokemon.stats">
+                            <td>{{stat.name}}</td>
+                            <td><b>{{stat.value}}</b></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <table class="table table-striped">
+                        <tr *ngFor="let stat of pokemon.stats">
+                            <td>{{stat.name}}</td>
+                            <td>{{stat.value}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
