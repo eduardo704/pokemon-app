@@ -403,7 +403,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PokemonService = (function () {
     function PokemonService(http) {
         this.http = http;
-        this.Url = ' http://pokeapi.co/api/v2/pokemon/';
+        this.Url = ' https://pokeapi.co/api/v2/pokemon/';
         this.offString = '?offset=';
         this.offset = 0;
     }
