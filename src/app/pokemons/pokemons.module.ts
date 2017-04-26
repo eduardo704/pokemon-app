@@ -6,10 +6,12 @@ import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component'
 import {PokemonListComponent} from './pokemon-list/pokemon-list.component';
 import {PokemonService} from './pokemon.service';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
-    CommonModule, PokemonsRoutingModule
+    CommonModule, PokemonsRoutingModule,  FormsModule, ReactiveFormsModule
   ],
   declarations: [PokemonDetailComponent, PokemonListComponent],
   providers:[PokemonService]

@@ -1,53 +1,72 @@
 <!--<button routerLink="/list">Go to List</button>
 <h2>{{id}}</h2>-->
-<div class="card margin-top-1" *ngIf="pokemon; else loading">
-    <div class="card-header">
-        Pokemon details
-    </div>
-    <div class="card-block">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
-                    <div class="row">
-                        <div class="col-sm-6">
+<div *ngIf="pokemon; else loading" class="row  margin-top-1">
+    <div class="col-sm-6">
+        <div class="card ">
+            <div class="card-header">
+                Pokemon details
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title text-center no-margin"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Height:&nbsp;<b>{{pokemon.height}}</b></li>
+                                <li class="list-group-item">Weight:&nbsp;<b>{{pokemon.weight}}</b></li>
+                                <li class="list-group-item">Types:&nbsp;
+                                    <span *ngFor="let type of pokemon.types" class="badge types badge-success badge-pill"> {{type}} </span>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
-                    <div class="card-block">
-                        <h4 class="card-title text-center no-margin"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
+                    <div class="col-sm-6">
+                        <h4>STATS</h4>
+                        <div>
+                            <table class="table table-striped">
+                                <tr *ngFor="let stat of pokemon.stats">
+                                    <td>{{stat.name}}</td>
+                                    <td><b>{{stat.value}}</b></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Height:&nbsp;<b>{{pokemon.height}}</b></li>
-                        <li class="list-group-item">Weight:&nbsp;<b>{{pokemon.weight}}</b></li>
-                        <li class="list-group-item">Types:&nbsp;
-                            <span *ngFor="let type of pokemon.types" class="badge types badge-success badge-pill"> {{type}} </span>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <h4>STATS</h4>
-                <div>
-                    <table class="table table-striped">
-                        <tr *ngFor="let stat of pokemon.stats">
-                            <td>{{stat.name}}</td>
-                            <td><b>{{stat.value}}</b></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div>
-                    <table class="table table-striped">
-                        <tr *ngFor="let stat of pokemon.stats">
-                            <td>{{stat.name}}</td>
-                            <td>{{stat.value}}</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-sm-6" *ngIf="pokeComentObservable | async">
+        <h2>Comments</h2>
+        <hr/>
+        <div class="row margin-bottom-2">
+            <div class="col-sm-12 ">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let comment of pokeComentObservable | async">
+                        <p class="mb-1">{{comment.comment}}</p>
+                        <small class="text-muted">by <span>{{comment.author}}</span></small>
+                    </a>
 
+                </div>
+            </div>
+        </div>
+        <div>
+            <form novalidate [formGroup]="form">
+                <div class="form-group">
+                    <textarea formControlName="comment" class="form-control" id="exampleTextarea" rows="3" placeholder="Your Comment"></textarea>
+                </div>
+                <div class=" form-group submit-container">
+                    <input formControlName="author" type="text" class="form-control col-sm-8" id="exampleInputPassword1" placeholder="Your Name">
+                    <button type="button" class="btn btn-primary submit-button" (click)="addComment()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

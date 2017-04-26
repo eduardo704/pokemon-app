@@ -11,3 +11,8 @@ export interface Stats {
     name : string;
     value : number;
 }
+
+export interface PokeComent {
+    coment:string;
+    author:string;
+}
