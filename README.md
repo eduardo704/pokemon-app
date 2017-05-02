@@ -1,5 +1,5 @@
 # Pokemon - App
-# Live version running at [GitHub Pages](https://edu-pokemon-app.herokuapp.com).
+# Live version running at [Heroku](https://edu-pokemon-app.herokuapp.com).
 
 This project was generated using angular CLI,  To run it: 
 
@@ -36,12 +36,12 @@ I just made a feel sample tests, I have never done testing in Angular before as 
 
 ## Bumps on the road and if I have more time
 
-Probably add some kind of verification on type of pokemon and set colors of the type label according.
+ - [x] Probably add some kind of verification on type of pokemon and set colors of the type label according.
 
-Search by pokemon or id.
+ - [x] Search by pokemon or id.
 
-Login via firebase so only logged in users can comment.
+ - [] Login via firebase so only logged in users can comment.
 
-Go to random pokemon button.
+ - [x] Go to random pokemon button.
 
-Comment form validation.
+ - [x] Comment form validation.
