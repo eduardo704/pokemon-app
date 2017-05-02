@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { Pokemon } from './pokemon';
 import { PokemonDetail, Stats, EmptyInterfaces, Type } from './pokemon-detail';
 import 'rxjs/add/operator/map';
