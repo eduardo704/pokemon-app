@@ -1,5 +1,5 @@
 # Pokemon - App
-# Live version running at [GitHub Pages](https://edu-pokemon-app.herokuapp.com).
+# Live version running at [Heroku](https://edu-pokemon-app.herokuapp.com).
 
 This project was generated using angular CLI,  To run it: 
 
