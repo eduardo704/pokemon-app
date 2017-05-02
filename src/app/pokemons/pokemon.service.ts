@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PokemonService {
-  private Url = 'http://pokeapi.co/api/v2/pokemon/';
+  private Url = 'https://pokeapi.co/api/v2/pokemon/';
   private offString = '?offset=';
   public offset = 0;
 
