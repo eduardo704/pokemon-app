@@ -7,10 +7,25 @@
     <base href="https://eduardo704.github.io/pokemon-app/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="styles.448e1873c77b3a925227.bundle.css" rel="stylesheet"/></head>
+<link href="styles.448e1873c77b3a925227.bundle.css" rel="stylesheet"/>
+  <script>
+      sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='https://USERNAME.github.io/PROJECT_NAME'"></meta>
+</head>
 
 <body>
     <app-root>Loading...</app-root>
+    <script>
+  // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
 <script type="text/javascript" src="inline.15c734012076f78a0a05.bundle.js"></script><script type="text/javascript" src="polyfills.7766595965b8adedd90d.bundle.js"></script><script type="text/javascript" src="vendor.d1bce75d3cd8620235a6.bundle.js"></script><script type="text/javascript" src="main.75e3c30d9cac352de3d9.bundle.js"></script></body>
 
 </html>
