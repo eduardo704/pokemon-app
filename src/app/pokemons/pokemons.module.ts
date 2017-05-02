@@ -7,13 +7,14 @@ import {PokemonListComponent} from './pokemon-list/pokemon-list.component';
 import {PokemonService} from './pokemon.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponentComponent } from './shared/loading-component/loading-component.component';
 
 
 @NgModule({
   imports: [
     CommonModule, PokemonsRoutingModule,  FormsModule, ReactiveFormsModule
   ],
-  declarations: [PokemonDetailComponent, PokemonListComponent],
+  declarations: [PokemonDetailComponent, PokemonListComponent, LoadingComponentComponent],
   providers:[PokemonService]
 })
 export class PokemonsModule {}

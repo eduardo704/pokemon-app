@@ -19,14 +19,12 @@ export class PokemonDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private af: AngularFire, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-
     this.form = this
       .formBuilder
       .group({
         comment: ['', Validators.required],
         author: ['', Validators.required],
-      })
-
+      });
 
     this
       .route
@@ -43,6 +41,7 @@ export class PokemonDetailComponent implements OnInit {
           .subscribe(pokemonFire => {
             if (pokemonFire.$value !== null) {
               this.pokemon = pokemonFire;
+              console.log(pokemonFire)
               this.initFirebaseComent();
             } else {
               this

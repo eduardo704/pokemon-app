@@ -1,37 +1,47 @@
-<div class="row margin-top-1">
-    <div class="col-sm-2">
-        <input [disabled]='pokemonService.offset==0 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='previous()' value="Previous">
+<div class="row margin-top-1 d-flex align-items-end">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label>Search By Pokemon Id or Name</label>
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchQuery" placeholder="Pikachu or 25">
+        <span class="input-group-btn">
+        <button (click)="searchPokemon()" class="btn btn-secondary" type="button">Search</button>
+      </span>
+      </div>
     </div>
-    <div class="col-sm-8">
+  </div>
+  <div class="col-lg-6">
+    <button type="button" class="btn random btn-success" (click)='goToRandomPokemon()'>Random Pokemon</button>
+  </div>
+</div>
 
-    </div>
-    <div class="col-sm-2">
-        <input [disabled]='pokemonService.offset>791 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='next()' value="Next">
-    </div>
+<div class="row margin-top-1">
+  <div class="col-sm-2">
+    <input [disabled]='pokemonService.offset==0 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='previous()'
+      value="Previous">
+  </div>
+  <div class="col-sm-8">
+
+  </div>
+  <div class="col-sm-2">
+    <input [disabled]='pokemonService.offset>791 || !(pokemons)' class="btn btn-primary btn-block" type="button" (click)='next()'
+      value="Next">
+  </div>
 </div>
 <div *ngIf="pokemons; else loading">
-    <div class="row">
-        <div class="card-container col-sm-12">
-            <div *ngFor="let pokemon of pokemons" class="card card-item">
-                <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title text-center"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
-                    <a (click)="selectPokemon(pokemon)" class="btn btn-block btn-success">Detalhes</a>
-                </div>
-            </div>
+  <div class="row">
+    <div class="card-container col-sm-12">
+      <div *ngFor="let pokemon of pokemons" class="card card-item">
+        <img class="card-img-top" [src]="pokemon.image" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title text-center"><span class="badge badge-warning badge-pill">#{{pokemon.id}}</span> {{pokemon.name}}</h4>
+          <button (click)="selectPokemon(pokemon)" type="button" class="btn btn-block btn-success">Details</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <ng-template #loading>
-    <div class="primary well ">
-        <div class="card card-outline-primary bg-faded loading-card">
-            <div class="card-block">
-                <div class="well-flex">
-                    <h2>Loading... </h2>
-                    <h2><i class="fa fa-spinner fa-spin"></i></h2>
-                </div>
-            </div>
-        </div>
-    </div>
+  <app-loading-component></app-loading-component>
 </ng-template>
