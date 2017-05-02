@@ -1,5 +1,5 @@
 # Pokemon - App
-# Live version running at [GitHub Pages](https://eduardo704.github.io/pokemon-app/list).
+# Live version running at [GitHub Pages](https://eduardo704.github.io/pokemon-app/).
 
 This project was generated using angular CLI,  To run it: 
 
