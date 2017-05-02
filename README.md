@@ -1,28 +1,47 @@
-# Pokemon
+# Pokemon - App
+# Live version running at [GitHub Pages](https://eduardo704.github.io/pokemon-app/list).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project was generated using angular CLI,  To run it: 
 
-## Development server
+### First download the repo 
+### Install the dependencies with npm install
+### Run it by using ng serve
+### Or test with ng test or npm test for karma test
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Goal - The task given to me
 
-## Code scaffolding
+A applicação que você deve desenvolver é uma aplicação para listar todos os pokémons vindos a partir de uma API e deve ser possivel visualizar um pokémon especifico para se obter mais informações sobre ele. Na visualização de um pokémon deve ser possivel adicionar um comentário sobre o mesmo e visualizar os comentários já criados para o pokémon.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Technologies chosen and why
 
-## Build
+So at first when I saw this assigment the first technology that came to my mind was angular. First because I am more experienced seccond because I knew how to do all goals required with it (also was in the job description). Also with the help of the CLI it helps to keep the code organized and understable. Also makes it easier for testing. I also used firebase for keeping the comments as it was suggested and seemed the better match indeed.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Idea of Design and UX
 
-## Running unit tests
+When I saw the jsonI from the request I imediatly though of the card design pattern as it seemed more aproriate to show all the key information.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I thought of using bootstrap 4 for that matter as it seemed to have al visual components I needed. And also works well with sass.
 
-## Running end-to-end tests
+I used flexbox to display the cards I thought it is the perfect use case for it. The card used is the default bootstrap one.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+I used Bootstrap grid system to organize the not card components.
 
-## Further help
+The application looks okay in mobile even though it wasn't a requirement.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I used pagination to show the pokemon list as the api forces but also there are too many pokemons anyway so I guess it looks nice.
+
+## Testing
+
+I just made a feel sample tests, I have never done testing in Angular before as in my previous job there is a QA team that does them. But if I had more time I could have done more but without knowing what to test is hard.
+
+## Bumps on the road and if I have more time
+
+Probably add some kind of verification on type of pokemon and set colors of the type label according.
+
+Search by pokemon or id.
+
+Login via firebase so only logged in users can comment.
+
+Go to random pokemon button.
+
+Comment form validation.
