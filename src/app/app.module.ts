@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './not-found.component';
 import { AppComponent } from './app.component';
 import { PokemonsModule } from './pokemons/pokemons.module';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { RouterModule } from '@angular/router';
 
 export const firebaseConfig = {
@@ -23,7 +24,7 @@ export const firebaseConfig = {
     AppComponent, PageNotFoundComponent
   ],
   imports: [
-    BrowserModule, FormsModule, PokemonsModule, AppRoutingModule, RouterModule, HttpModule, AngularFireModule.initializeApp(firebaseConfig)
+    BrowserModule, FormsModule, PokemonsModule, AppRoutingModule, RouterModule, HttpModule, AngularFireModule.initializeApp(firebaseConfig),  AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

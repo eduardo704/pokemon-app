@@ -5,7 +5,8 @@ import { PokemonService } from '../pokemon.service';
 import { PokemonDetail, Stats } from '../pokemon-detail';
 import { PokeComent } from '../poke-coment';
 import 'rxjs/add/operator/switchMap';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+//import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({ selector: 'app-pokemon-detail', templateUrl: './pokemon-detail.component.html', styleUrls: ['./pokemon-detail.component.sass'] })
@@ -16,7 +17,7 @@ export class PokemonDetailComponent implements OnInit {
   pokeComentObservable: FirebaseListObservable<any>;
   form: FormGroup;
 
-  constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private af: AngularFire, private formBuilder: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private db: AngularFireDatabase, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.form = this
@@ -32,8 +33,7 @@ export class PokemonDetailComponent implements OnInit {
       .subscribe(params => {
         this.id = +params['id'];
         this.pokeObservable = this
-          .af
-          .database
+          .db
           .object('/pokemons/' + this.id);
 
         this
@@ -62,15 +62,14 @@ export class PokemonDetailComponent implements OnInit {
 
   initFirebaseComent() {
     this.pokeComentObservable = this
-      .af
-      .database
+      .db
       .list('/pokemons/' + this.id + '/coments')
     console.log('init')
   }
 
   addComment() {
     console.log(this.form.value);
-    this.pokeComentObservable.push(this.form.value) 
+    this.pokeComentObservable.push(this.form.value)
   }
 
 }
