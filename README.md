@@ -40,7 +40,7 @@ I just made a feel sample tests, I have never done testing in Angular before as 
 
  - [x] Search by pokemon or id.
 
- - [] Login via firebase so only logged in users can comment.
+ - [ ] Login via firebase so only logged in users can comment.
 
  - [x] Go to random pokemon button.
 
